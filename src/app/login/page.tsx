@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ClientLoginForm from "../../components/auth/ClientLoginForm";
+import ClientLoginWrapper from "../../components/auth/ClientLoginWrapper";
 
 export const metadata: Metadata = {
   title: "PeopleTech ConnectIA - Login",
@@ -7,9 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Login() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
-      <ClientLoginForm />
-    </div>
-  );
+  return <ClientLoginWrapper />;
 }
