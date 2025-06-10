@@ -131,8 +131,8 @@ const ProfilePage: React.FC = () => {
 
   const RecentActivityItem: React.FC<{text: string, iconName: IconName}> = ({text, iconName}) => ( 
     <li className="flex items-center text-sm py-1.5">
-        <Icon name={iconName} className="w-4 h-4 mr-2.5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
-        <span className="text-gray-700 dark:text-gray-300">{text}</span>
+        <Icon name={iconName} className="w-4 h-4 mr-2.5 text-gray-600 dark:text-gray-400 flex-shrink-0" />
+        <span className="text-gray-800 dark:text-gray-300 font-medium">{text}</span>
     </li>
   );
 
@@ -201,7 +201,7 @@ const ProfilePage: React.FC = () => {
                     {isEditing ? (
                         <textarea value={editableSkillsString} onChange={(e) => setEditableSkillsString(e.target.value)} rows={3} className="text-sm w-full p-2 border rounded-md bg-neutral-bgLight dark:bg-neutral-bgDark text-neutral-textDark dark:text-neutral-textLight border-neutral-borderLight dark:border-neutral-borderDark focus:ring-primary-DEFAULT focus:border-primary-DEFAULT" placeholder="Ej: React, IA, Viajar, Cocina... (separados por comas)"></textarea>
                     ) : (
-                        (profileUser.skills && profileUser.skills.length > 0) ? profileUser.skills.map(skill => <SkillChip key={skill} skill={skill}/>) : <p className="text-xs text-gray-500 dark:text-gray-400 italic">Aún no hay habilidades listadas.</p>
+                        (profileUser.skills && profileUser.skills.length > 0) ? profileUser.skills.map(skill => <SkillChip key={skill} skill={skill}/>) : <p className="text-xs text-gray-600 dark:text-gray-400 italic">Aún no hay habilidades listadas.</p>
                     )}
                 </div>
             </div>
@@ -217,7 +217,7 @@ const ProfilePage: React.FC = () => {
                         </li>
                     ))}
                     </ul>
-                ) : <p className="text-xs text-gray-500 dark:text-gray-400 italic">No pertenece a ningún equipo aún.</p>}
+                ) : <p className="text-xs text-gray-600 dark:text-gray-400 italic">No pertenece a ningún equipo aún.</p>}
             </div>
 
             <div className="bg-card-light dark:bg-card-dark shadow-lg rounded-lg p-5">
@@ -230,7 +230,7 @@ const ProfilePage: React.FC = () => {
                         </span>
                     ))}
                     </div>
-                ) : <p className="text-xs text-gray-500 dark:text-gray-400 italic">Aún no ha ganado insignias.</p>}
+                ) : <p className="text-xs text-gray-600 dark:text-gray-400 italic">Aún no ha ganado insignias.</p>}
             </div>
             
             <div className="bg-gradient-to-tr from-accent-DEFAULT/20 to-secondary-DEFAULT/10 dark:from-accent-dark/20 dark:to-secondary-dark/10 p-5 rounded-lg shadow-lg relative overflow-hidden">
@@ -242,7 +242,7 @@ const ProfilePage: React.FC = () => {
                     </h3>
                     <Button variant="ghost" size="sm" onClick={cycleCuriosity} className="text-xs !p-1 text-primary-dark/80 dark:text-primary-light/80 hover:bg-transparent/10">Otra</Button>
                 </div>
-                <p className="italic text-sm text-gray-700 dark:text-gray-300 leading-relaxed min-h-[4em]">{currentAICuriosity || `${AI_ASSISTANT_NAME} está pensando...`}</p>
+                <p className="italic text-sm text-gray-800 dark:text-gray-300 leading-relaxed min-h-[4em] font-medium">{currentAICuriosity || `${AI_ASSISTANT_NAME} está pensando...`}</p>
             </div>
         </div>
 

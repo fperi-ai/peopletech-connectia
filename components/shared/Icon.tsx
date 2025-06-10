@@ -83,6 +83,10 @@ const BellIcon: React.FC = () => (
   <span className="flex items-center justify-center" role="img" aria-label="Notificaciones">🔔</span>
 );
 
+const EnvelopeIcon: React.FC = () => (
+  <span className="flex items-center justify-center" role="img" aria-label="Email">✉️</span>
+);
+
 const QuestionMarkCircleIcon: React.FC = () => (
   <span className="flex items-center justify-center" role="img" aria-label="Ayuda">❓</span>
 );
@@ -132,7 +136,7 @@ export type IconName =
   'close' | 'lock-closed' | 'check' | 'search' | 'edit' | 'trash' |
   'plus-circle' | 'arrow-left-on-rectangle' | 'bell' | 'question-mark-circle' |
   'information-circle' | 'photo' | 'chevron-right' | 'chevron-left' | 'pencil' |
-  'code' | 'chart-bar';
+  'code' | 'chart-bar' | 'envelope';
 
 interface IconProps {
   name: IconName;
@@ -171,6 +175,7 @@ const Icon: React.FC<IconProps> = ({ name, className, titleAccess, glassmorphic 
     'pencil': PencilIcon,
     'code': CodeIcon,
     'chart-bar': ChartBarIcon,
+    'envelope': EnvelopeIcon,
   };
 
   const SelectedIcon = iconMap[name];

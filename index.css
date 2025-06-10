@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilos globales para el modo claro/oscuro */
+:root {
+  color-scheme: light;
+}
+
+html {
+  background-color: #f0f4f8;
+}
+
+html.dark {
+  background-color: #0f172a;
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Variables CSS */
 :root {
   /* Color variables */
   --color-primary: #3B82F6;
@@ -26,10 +45,11 @@
 /* Glassmorphism base classes */
 .glass {
   @apply bg-opacity-15 bg-white dark:bg-neutral-bgDark dark:bg-opacity-65;
-  @apply backdrop-blur-md;
+  @apply backdrop-filter backdrop-blur-md;
   @apply border border-white border-opacity-[0.18] dark:border-white dark:border-opacity-[0.08];
   @apply shadow-glass;
   @apply rounded-xl;
+  @apply transition-colors duration-300;
 }
 
 .glass-card {

@@ -54,6 +54,8 @@ export interface Announcement {
   authorName: string;
   timestamp: number;
   isOfficial?: boolean;
+  comments?: Comment[];
+  reactions?: { [emoji: string]: string[] }; // emoji: [userIds]
 }
 
 export interface Challenge {

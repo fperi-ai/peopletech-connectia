@@ -101,8 +101,8 @@ const LoginPage: React.FC = () => {
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Correo electrónico</label>
                 <div className="relative group">
-                  <span className={`absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400 group-focus-within:text-primary-DEFAULT transition-colors`}>
-                    <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 2.006l7.997 3.878A2 2 0 0019.5 7.553V14a2 2 0 01-2 2H2.5a2 2 0 01-2-2V7.553a2 2 0 001.503-1.669z" /><path d="M18 8.118l-8 4-8-4V14a1 1 0 001 1h14a1 1 0 001-1V8.118z" /></svg>
+                  <span className={`absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-600 group-focus-within:text-primary-DEFAULT transition-colors`}>
+                    <Icon name="envelope" className="w-5 h-5" />
                   </span>
                   <input
                     id="email"
@@ -118,8 +118,8 @@ const LoginPage: React.FC = () => {
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Contraseña</label>
                  <div className="relative group">
-                   <span className={`absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400 group-focus-within:text-primary-DEFAULT transition-colors ${passwordHasValue ? 'text-primary-DEFAULT' : ''}`}>
-                    <svg className="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z" clipRule="evenodd" /></svg>
+                   <span className={`absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-600 group-focus-within:text-primary-DEFAULT transition-colors ${passwordHasValue ? 'text-primary-DEFAULT' : ''}`}>
+                    <Icon name="lock-closed" className="w-5 h-5" />
                    </span>
                   <input
                     id="password"

@@ -44,5 +44,16 @@ next-env.d.ts
 # Vite
 .vite
 
-# Netlify build
+# Netlify build and assets
 /dist
+/dist/assets/
+*.css.map
+*.js.map
+
+# Editor and system files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.history
