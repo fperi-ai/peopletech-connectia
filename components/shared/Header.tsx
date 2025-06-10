@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect, useRef } from 'react';
-import { NavLink, useNavigate, Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useAuth } from '../../contexts/AuthContext';
 import Logo from './Logo';
@@ -28,7 +27,7 @@ interface MockNotification {
 const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
   const { theme, toggleTheme } = useTheme();
   const { currentUser, logout } = useAuth();
-  const navigate = useNavigate(); 
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isNotificationMenuOpen, setIsNotificationMenuOpen] = useState(false);
@@ -112,7 +111,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
                   className={({ isActive }) => `${baseLinkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <Icon name={item.icon} className="w-5 h-5" titleAccess={item.label} glassmorphic={glassmorphic} />
+                  <Icon name={item.icon} className="text-lg" titleAccess={item.label} glassmorphic={glassmorphic} />
                   <span className="hidden lg:inline">{item.label}</span>
                 </NavLink>
               ))}
@@ -124,7 +123,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
               <label htmlFor="search" className="sr-only">Buscar</label>
               <div className="relative text-gray-400 focus-within:text-gray-600">
                 <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
-                  <Icon name="search" className="h-5 w-5" />
+                  <Icon name="search" className="text-lg" />
                 </div>
                 <input
                   id="search"
@@ -146,7 +145,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
               className="glass p-2 rounded-full hover:bg-white/25 dark:hover:bg-neutral-textLight/15 text-neutral-textDark dark:text-neutral-textLight focus:outline-none"
               aria-label={theme === 'dark' ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
             >
-              <Icon name={theme === 'dark' ? 'sun' : 'moon'} className={`w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 ${theme === 'dark' ? 'rotate-0' : 'rotate-90'}`} glassmorphic={glassmorphic} />
+              <Icon name={theme === 'dark' ? 'sun' : 'moon'} className="text-lg" glassmorphic={glassmorphic} />
             </button>
 
             {currentUser && (
@@ -161,7 +160,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
                     aria-haspopup="true"
                     aria-expanded={isNotificationMenuOpen}
                   >
-                    <Icon name="bell" className="w-5 h-5 sm:w-6 sm:h-6" glassmorphic={glassmorphic} />
+                    <Icon name="bell" className="text-lg" glassmorphic={glassmorphic} />
                     {unreadNotificationCount > 0 && (
                       <span className="absolute top-0 right-0 block h-2.5 w-2.5 rounded-full ring-2 ring-card-light dark:ring-card-dark bg-error" /> 
                     )}
@@ -215,16 +214,16 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
                         <p className="text-xs text-gray-500 dark:text-gray-400 truncate" role="none">{currentUser.email}</p>
                       </div>
                       <NavLink to={`/profile/${currentUser.id}`} className="flex items-center gap-2 px-4 py-2 text-sm text-neutral-textDark dark:text-neutral-textLight hover:bg-primary-DEFAULT/10 dark:hover:bg-primary-dark/20 w-full text-left" role="menuitem" onClick={()=>setIsUserMenuOpen(false)}>
-                        <Icon name="users" className="w-4 h-4" glassmorphic={glassmorphic}/> Ver Perfil
+                        <Icon name="users" className="text-lg" glassmorphic={glassmorphic}/> Ver Perfil
                       </NavLink>
                       <NavLink to="/welcome" className="flex items-center gap-2 px-4 py-2 text-sm text-neutral-textDark dark:text-neutral-textLight hover:bg-primary-DEFAULT/10 dark:hover:bg-primary-dark/20 w-full text-left" role="menuitem" onClick={()=>setIsUserMenuOpen(false)}>
-                        <Icon name="information-circle" className="w-4 h-4" glassmorphic={glassmorphic}/> Acerca de
+                        <Icon name="information-circle" className="text-lg" glassmorphic={glassmorphic}/> Acerca de
                       </NavLink>
                       <Link to="/help" className="flex items-center gap-2 px-4 py-2 text-sm text-neutral-textDark dark:text-neutral-textLight hover:bg-primary-DEFAULT/10 dark:hover:bg-primary-dark/20 w-full text-left" role="menuitem" onClick={()=>setIsUserMenuOpen(false)}>
-                        <Icon name="question-mark-circle" className="w-4 h-4" glassmorphic={glassmorphic}/> Ayuda
+                        <Icon name="question-mark-circle" className="text-lg" glassmorphic={glassmorphic}/> Ayuda
                       </Link>
                       <button onClick={handleLogout} className="flex items-center gap-2 w-full text-left px-4 py-2 text-sm text-error hover:bg-error/10" role="menuitem">
-                        <Icon name="logout" className="w-4 h-4" glassmorphic={glassmorphic}/> Cerrar Sesión
+                        <Icon name="logout" className="text-base" glassmorphic={glassmorphic}/> Cerrar Sesión
                       </button>
                     </div>
                   )}
@@ -241,7 +240,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
                 aria-label="Abrir menú principal"
               >
                 {isMobileMenuOpen ? (
-                  <Icon name="close" className="block h-6 w-6" glassmorphic={glassmorphic} />
+                  <Icon name="close" className="block text-xl" glassmorphic={glassmorphic} />
                 ) : (
                   // Hamburger icon SVG
                   <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -261,7 +260,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
                 <label htmlFor="search-mobile" className="sr-only">Buscar</label>
                 <div className="relative text-gray-400 focus-within:text-gray-600">
                     <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
-                    <Icon name="search" className="h-5 w-5" glassmorphic={glassmorphic} />
+                    <Icon name="search" className="text-lg" glassmorphic={glassmorphic} />
                     </div>
                     <input
                     id="search-mobile"
@@ -281,7 +280,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={({ isActive }) => `block ${baseLinkClasses} ${isActive ? activeLinkClasses : inactiveLinkClasses}`}
               >
-                <Icon name={item.icon} className="w-5 h-5" titleAccess={item.label} />
+                <Icon name={item.icon} className="text-lg" titleAccess={item.label} />
                 {item.label}
               </NavLink>
             ))}

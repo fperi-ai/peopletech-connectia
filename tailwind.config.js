@@ -23,10 +23,8 @@ export default {
         'none': 'none',
         'blur': 'blur(10px)',
       },
-      backgroundOpacity: {
+      opacity: {
         '15': '0.15',
-        '35': '0.35',
-        '65': '0.65',
       },
       boxShadow: {
         'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',

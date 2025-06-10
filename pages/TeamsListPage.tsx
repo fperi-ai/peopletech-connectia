@@ -98,7 +98,7 @@ const TeamsListPage: React.FC = () => {
         </div>
         {canCreateTeam && (
           <Button onClick={() => setShowCreateModal(true)} leftIcon={<Icon name="plus-circle" className="w-4 h-4" />}>
-            + Nuevo Equipo
+            Nuevo Equipo
           </Button>
         )}
       </div>

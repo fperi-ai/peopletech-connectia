@@ -71,11 +71,11 @@ const LoginPage: React.FC = () => {
               <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-center text-neutral-textDark dark:text-neutral-textLight">{APP_NAME}</h1>
               <p className="text-xl lg:text-2xl mb-8 text-center font-light tracking-wide">Conecta a las personas de Inditex con la ayuda de la IA.</p>
               
-              <ul className="space-y-3 mb-8 text-sm max-w-md mx-auto flex flex-col items-center">
-                <li className="flex items-center"><Icon name="users" className="w-5 h-5 mr-2.5 text-primary-DEFAULT flex-shrink-0"/>Colaboración interna potenciada</li>
-                <li className="flex items-center"><Icon name="trophy" className="w-5 h-5 mr-2.5 text-primary-DEFAULT flex-shrink-0"/>Retos gamificados y divertidos</li>
-                <li className="flex items-center"><Icon name="robot" className="w-5 h-5 mr-2.5 text-primary-DEFAULT flex-shrink-0"/>Asistente IA amigable y personalizado</li>
-                <li className="flex items-center"><Icon name="face-smile" className="w-5 h-5 mr-2.5 text-primary-DEFAULT flex-shrink-0"/>Humor corporativo y memes IA</li>
+              <ul className="space-y-3 mb-8 text-sm max-w-md mx-auto flex flex-col items-start">
+                <li className="flex items-center"><Icon name="users" className="text-base mr-2 text-primary-DEFAULT"/>Colaboración interna potenciada</li>
+                <li className="flex items-center"><Icon name="trophy" className="text-base mr-2 text-primary-DEFAULT"/>Retos gamificados y divertidos</li>
+                <li className="flex items-center"><Icon name="robot" className="text-base mr-2 text-primary-DEFAULT"/>Asistente IA amigable y personalizado</li>
+                <li className="flex items-center"><Icon name="face-smile" className="text-base mr-2 text-primary-DEFAULT"/>Humor corporativo y memes IA</li>
               </ul>
               
               <div className="flex justify-center mt-8">
@@ -147,11 +147,11 @@ const LoginPage: React.FC = () => {
                     key={user.id} 
                     onClick={() => handleDemoUserLogin(user.email, user.password || '')}
                     disabled={isLoading}
-                    className="flex flex-col items-center p-3 border border-white/20 dark:border-white/10 rounded-lg bg-white/10 dark:bg-neutral-bgDark/20 backdrop-blur-sm hover:bg-white/20 dark:hover:bg-neutral-bgDark/30 hover:shadow-glass transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed group"
+                    className="flex flex-col items-center p-3 border border-black/10 dark:border-white/10 rounded-lg bg-white/10 dark:bg-neutral-bgDark/20 backdrop-blur-sm hover:bg-white/20 dark:hover:bg-neutral-bgDark/30 hover:shadow-glass transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed group"
                   >
                     <Avatar src={user.avatar} alt={user.name} size="md" className="mb-2 group-hover:ring-2 group-hover:ring-primary-DEFAULT/50 transition-all"/>
                     <span className="text-sm font-medium text-neutral-textDark dark:text-neutral-textLight">{user.name}</span>
-                    <span className="text-xs text-gray-500 dark:text-gray-400">{user.role}</span>
+                    <span className="text-xs text-gray-500 dark:text-gray-400">{user.role === 'Employee' ? 'Emplead@' : user.role}</span>
                     <span className="mt-1.5 text-xs bg-primary-DEFAULT/10 text-primary-dark dark:text-primary-light px-2 py-0.5 rounded-full group-hover:bg-primary-DEFAULT group-hover:text-white transition-colors">Usar esta cuenta</span>
                   </button>
                 ))}

@@ -1,9 +1,9 @@
 
 import React from 'react';
-import { INITIAL_CHALLENGES, DEMO_USERS } from '../constants';
+import { INITIAL_CHALLENGES } from '../constants';
 import { useAuth } from '../contexts/AuthContext';
 import Icon from '../components/shared/Icon';
-import Avatar from '../components/shared/Avatar';
+import { ChallengesSidebar } from '../components/challenges/sidebar/ChallengesSidebar';
 
 const ChallengesPage: React.FC = () => {
   const { currentUser } = useAuth();
@@ -16,15 +16,12 @@ const ChallengesPage: React.FC = () => {
   }, 0);
   const userLevel = Math.floor(userPoints / 100) + 1; 
   const pointsForNextLevel = (userLevel * 100) - userPoints +1;
-  
-  const leaderboard = DEMO_USERS.slice(0,3).map((u,idx) => ({
-      ...u,
-      points: (5-idx) * 75 + Math.floor(Math.random()*50) 
-  })).sort((a,b) => b.points - a.points);
 
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4">
+    <div className="container mx-auto px-4 md:px-6 pb-32 relative">
+      <ChallengesSidebar />
+      <div className="lg:pr-80 transition-all duration-300">
       <h1 className="text-3xl font-bold text-primary-DEFAULT mb-2 flex items-center">
         <Icon name="trophy" className="w-8 h-8 mr-2 text-secondary-DEFAULT" /> Retos ConnectIA
       </h1>
@@ -76,23 +73,7 @@ const ChallengesPage: React.FC = () => {
           );
         })}
       </div>
-      
-      <div className="mt-12">
-        <h2 className="text-2xl font-semibold mb-4 text-center text-neutral-textDark dark:text-neutral-textLight">🏆 Leaderboard 🏆</h2>
-        <div className="bg-card-light dark:bg-card-dark shadow-xl rounded-lg p-6">
-            {leaderboard.map((user, index) => (
-                <div key={user.id} className={`flex items-center justify-between p-3 rounded-md mb-2 ${index < 3 ? 'bg-secondary-DEFAULT/10 dark:bg-secondary-dark/20' : 'hover:bg-neutral-bgLight/50 dark:hover:bg-neutral-bgDark/30'}`}>
-                    <div className="flex items-center">
-                        <span className={`font-bold mr-3 text-lg w-6 ${index < 3 ? 'text-secondary-dark dark:text-secondary-DEFAULT' : 'text-neutral-textDark dark:text-neutral-textLight'}`}>{index + 1}.</span>
-                        <Avatar src={user.avatar} alt={user.name} size="sm" />
-                        <span className="ml-3 font-medium text-neutral-textDark dark:text-neutral-textLight">{user.name}</span>
-                    </div>
-                    <span className="font-semibold text-primary-DEFAULT">{user.points} pts</span>
-                </div>
-            ))}
-        </div>
       </div>
-
     </div>
   );
 };

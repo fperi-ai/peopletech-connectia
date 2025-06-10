@@ -19,7 +19,7 @@ const AnnouncementsPage: React.FC = () => {
             El Altavoz 
             <Icon name="megaphone" className="w-8 h-8 ml-2 text-secondary-DEFAULT transform -rotate-12" />
         </h1>
-        {canCreate && <Button leftIcon={<Icon name="plus-circle" className="w-4 h-4"/>}>+ Nuevo Anuncio</Button>}
+        {canCreate && <Button leftIcon={<Icon name="plus-circle" className="w-4 h-4"/>}>Nuevo Anuncio</Button>}
       </div>
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">Comunicaciones oficiales de People Tech y la compañía. Solo para leer y participar.</p>
       

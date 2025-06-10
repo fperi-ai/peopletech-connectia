@@ -3,6 +3,7 @@ import React from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
 import { GlassmorphismProvider } from './contexts/GlassmorphismContext';
+import { QueryProvider } from './contexts/QueryProvider';
 import LoginPage from './pages/LoginPage';
 import WelcomePage from './pages/WelcomePage';
 import FeedPage from './pages/FeedPage';
@@ -52,11 +53,13 @@ const AppContent: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <GlassmorphismProvider>
-      <HashRouter>
-        <AppContent />
-      </HashRouter>
-    </GlassmorphismProvider>
+    <QueryProvider>
+      <GlassmorphismProvider>
+        <HashRouter>
+          <AppContent />
+        </HashRouter>
+      </GlassmorphismProvider>
+    </QueryProvider>
   );
 };
 

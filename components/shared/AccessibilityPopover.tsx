@@ -134,7 +134,7 @@ const AccessibilityPopover: React.FC<AccessibilityPopoverProps> = ({ isOpen, onC
         </div>
         <button 
           onClick={onClose} 
-          className={`w-8 h-8 rounded-full text-neutral-textDark dark:text-neutral-textLight ${glassmorphic ? 'hover:bg-white/25 dark:hover:bg-neutral-textLight/15' : 'hover:bg-neutral-textDark/10 dark:hover:bg-neutral-textLight/10'} focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT flex items-center justify-center`}
+          className={`w-8 h-8 rounded-full text-neutral-textDark dark:text-neutral-textLight ${glassmorphic ? 'bg-white/10 dark:bg-neutral-textLight/10 hover:bg-white/25 dark:hover:bg-neutral-textLight/15' : 'bg-neutral-textDark/5 dark:bg-neutral-textLight/5 hover:bg-neutral-textDark/10 dark:hover:bg-neutral-textLight/10'} focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT flex items-center justify-center p-0`}
           aria-label="Cerrar popover de accesibilidad"
         >
           <Icon name="close" className="w-5 h-5" glassmorphic={glassmorphic} />

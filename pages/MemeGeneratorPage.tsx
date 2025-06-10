@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import { MEME_TEMPLATES, AI_ASSISTANT_NAME } from '../constants';
 import { MemeTemplate } from '../types';
 import Button from '../components/shared/Button';
@@ -13,7 +13,7 @@ const MemeGeneratorPage: React.FC = () => {
   const [generatedMemeUrl, setGeneratedMemeUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const navigate = useNavigate();
+
 
   const handleGenerateMeme = async () => {
     if (!idea.trim() && !selectedTemplate) {
@@ -128,9 +128,7 @@ const MemeGeneratorPage: React.FC = () => {
           )}
         </div>
       </div>
-       <div className="mt-8 text-center">
-            <Button variant="ghost" onClick={() => navigate(-1)}>Volver</Button>
-        </div>
+
     </div>
   );
 };

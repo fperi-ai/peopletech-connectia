@@ -7,43 +7,42 @@ export const AI_ASSISTANT_NAME = "Connie"; // Updated
 export const ENABLE_GLASSMORPHISM = true; // Controla la aplicación global del estilo Glassmorphism
 
 export const DEMO_USERS: User[] = [
-  { id: 'user1', email: 'ana.admin@inditex.com', name: 'Ana Admin', role: UserRole.ADMIN, avatar: 'https://picsum.photos/seed/ana/100/100', password: 'password', firstLogin: true, teamIds: ['team1', 'team3'], bio: `Liderando la transformación digital en People Tech. Entusiasta de la IA y el café bien cargado ☕. Fanática de los escape rooms y los retos complejos. #Innovacion #LiderazgoIA`, skills: ['Gestión de Proyectos', 'IA Estratégica', 'Liderazgo de Equipos', 'Transformación Digital', 'Public Speaking'], joinTimestamp: new Date('2020-01-15T10:00:00Z').getTime() },
-  { id: 'user2', email: 'mario.manager@inditex.com', name: 'Mario Manager', role: UserRole.MANAGER, avatar: 'https://picsum.photos/seed/mario/100/100', password: 'password', firstLogin: true, teamIds: ['team1', 'team3', 'team4'], bio: `Manager en People Tech, enfocado en UX y la felicidad del equipo. En mis tiempos libres, intento ser chef 🧑‍🍳 y fotógrafo aficionado. Buscando siempre el 'wow' en cada proyecto. #UXDesign #TeamBuilding`, skills: ['UX/UI Design', 'Gestión de Equipos', 'Metodologías Ágiles', 'Growth Hacking', 'Fotografía'], joinTimestamp: new Date('2019-07-22T14:30:00Z').getTime() },
-  { id: 'user3', email: 'eva.empleado@inditex.com', name: 'Eva Empleado', role: UserRole.EMPLOYEE, avatar: 'https://picsum.photos/seed/eva/100/100', password: 'password', firstLogin: true, teamIds: ['team2', 'team3'], bio: `Developer en ConnectIA. Me encanta el código limpio y los gatos 🐈. Siempre aprendiendo algo nuevo. Runner ocasional y experta en encontrar los mejores memes. #FullStackDev #Gatos #AprendizajeContinuo`, skills: ['React', 'TypeScript', 'Node.js', 'Python', 'SQL', 'Docker'], joinTimestamp: new Date('2021-03-10T09:00:00Z').getTime() },
-  { id: 'user4', email: 'luis.leader@inditex.com', name: 'Luis Leader', role: UserRole.MANAGER, avatar: 'https://picsum.photos/seed/luis/100/100', password: 'password', firstLogin: false, teamIds: ['team1', 'team3', 'team5'], bio: 'Apasionado por la tecnología y la música. Conectando ideas y personas. Siempre listo para un buen debate sobre el futuro del retail.', skills: ['Liderazgo Técnico', 'Arquitectura de Software', 'DevOps', 'Cloud Computing'], joinTimestamp: new Date('2018-11-05T11:00:00Z').getTime() },
-  { id: 'user5', email: 'sara.social@inditex.com', name: 'Sara Social', role: UserRole.EMPLOYEE, avatar: 'https://picsum.photos/seed/sara/100/100', password: 'password', firstLogin: false, teamIds: ['team2', 'team3', 'team4'], bio: 'Comunicadora y estratega de contenido. Me encanta contar historias y crear comunidades. Adicta al té y a los libros de misterio.', skills: ['Marketing Digital', 'Redes Sociales', 'Content Creation', 'SEO', 'Análisis de Datos'], joinTimestamp: new Date('2022-05-20T16:00:00Z').getTime() },
+  { id: 'user1', email: 'fran.periago@inditex.com', name: 'Fran Periago', role: UserRole.ADMIN, avatar: 'https://picsum.photos/seed/ana/100/100', password: 'password', firstLogin: true, teamIds: ['team1', 'team3'], bio: `Liderando la transformación digital en People Tech. Entusiasta de la IA y el café bien cargado ☕. Fanático de los escape rooms y los retos complejos. #Innovacion #LiderazgoIA`, skills: ['Gestión de Proyectos', 'IA Estratégica', 'Liderazgo de Equipos', 'Transformación Digital', 'Public Speaking'], joinTimestamp: new Date('2020-01-15T10:00:00Z').getTime(), roleDescription: 'Especialista IA', quote: 'Impulsamos la colaboración con IA para potenciar el talento de cada persona.' },
+  { id: 'user2', email: 'fer.suarez@inditex.com', name: 'Fer Suárez', role: UserRole.MANAGER, avatar: 'https://picsum.photos/seed/mario/100/100', password: 'password', firstLogin: true, teamIds: ['team1', 'team3', 'team4'], bio: `Manager en People Tech, enfocado en UX y la felicidad del equipo. En mis tiempos libres, intento ser chef 🧑‍🍳 y fotógrafo aficionado. Buscando siempre el 'wow' en cada proyecto. #UXDesign #TeamBuilding`, skills: ['UX/UI Design', 'Gestión de Equipos', 'Metodologías Ágiles', 'Growth Hacking', 'Fotografía'], joinTimestamp: new Date('2019-07-22T14:30:00Z').getTime(), roleDescription: 'Manager People Tech', quote: 'Una plataforma donde las voces de todos cuentan y la innovación florece.' },
+  { id: 'user3', email: 'mari.prado@inditex.com', name: 'Mari Prado', role: UserRole.EMPLOYEE, avatar: 'https://picsum.photos/seed/eva/100/100', password: 'password', firstLogin: true, teamIds: ['team2', 'team3'], bio: `Developer en ConnectIA. Me encanta el código limpio y los gatos 🐈. Siempre aprendiendo algo nuevo. Runner ocasional y experta en encontrar los mejores memes. #FullStackDev #Gatos #AprendizajeContinuo`, skills: ['React', 'TypeScript', 'Node.js', 'Python', 'SQL', 'Docker'], joinTimestamp: new Date('2021-03-10T09:00:00Z').getTime() },
+  { id: 'user4', email: 'luis.jimenez@inditex.com', name: 'Luis Jiménez', role: UserRole.MANAGER, avatar: 'https://picsum.photos/seed/luis/100/100', password: 'password', firstLogin: false, teamIds: ['team1', 'team3', 'team5'], bio: 'Apasionado por la tecnología y la música. Conectando ideas y personas. Siempre listo para un buen debate sobre el futuro del retail.', skills: ['Liderazgo Técnico', 'Arquitectura de Software', 'DevOps', 'Cloud Computing'], joinTimestamp: new Date('2018-11-05T11:00:00Z').getTime(), roleDescription: 'Data & Analytics', quote: 'Conecta, comparte y crece: tu comunidad tecnológica en un solo lugar.' },
+  { id: 'user5', email: 'sara.garcia@inditex.com', name: 'Sara García', role: UserRole.EMPLOYEE, avatar: 'https://picsum.photos/seed/sara/100/100', password: 'password', firstLogin: false, teamIds: ['team2', 'team3', 'team4'], bio: 'Comunicadora y estratega de contenido. Me encanta contar historias y crear comunidades. Adicta al té y a los libros de misterio.', skills: ['Marketing Digital', 'Redes Sociales', 'Content Creation', 'SEO', 'Análisis de Datos'], joinTimestamp: new Date('2022-05-20T16:00:00Z').getTime() },
 ];
 
 export const INITIAL_POSTS: Post[] = [
   { 
     id: 'post1', 
     authorId: 'user2', 
-    authorName: 'Mario Manager', 
+    authorName: 'Fer Suárez', 
     authorAvatar: DEMO_USERS.find(u=>u.id === 'user2')?.avatar || '', 
-    content: 'Excited to kick off the new quarter! Let\'s make it a great one. #NewBeginnings', 
+    content: '¡Emocionada por empezar el nuevo Quarter! Vamos a hacerlo genial. #NuevosComienzos', 
     timestamp: Date.now() - 1000 * 60 * 60 * 2, 
     reactions: { '👍': ['user3', 'user1'] }, 
     comments: [
-      { id: 'comment1-1', authorId: 'user3', authorName: 'Eva Empleado', authorAvatar: DEMO_USERS.find(u=>u.id === 'user3')?.avatar || '', content: 'Totally agree, Mario!', timestamp: Date.now() - 1000 * 60 * 60 * 1 }
+      { id: 'comment1-1', authorId: 'user3', authorName: 'Mari Prado', authorAvatar: DEMO_USERS.find(u=>u.id === 'user3')?.avatar || '', content: '¡Totalmente de acuerdo, Fer!', timestamp: Date.now() - 1000 * 60 * 60 * 1 }
     ]
   },
   { 
     id: 'post2', 
     authorId: 'user3', 
-    authorName: 'Eva Empleado', 
+    authorName: 'Mari Prado', 
     authorAvatar: DEMO_USERS.find(u=>u.id === 'user3')?.avatar || '', 
-    content: 'Just discovered a great new coffee spot near the office! ☕ Anyone tried it?', 
-    imageUrl: 'https://picsum.photos/seed/coffee/600/400', 
-    timestamp: Date.now() - 1000 * 60 * 30, 
-    reactions: { '❤️': ['user2'], '🎉': ['user1', 'user4'] }, 
+    content: '¡Acabo de descubrir una nueva cafetería genial cerca de la oficina! ☕ ¿Alguien la ha probado?', 
+    timestamp: Date.now() - 1000 * 60 * 60 * 22, 
+    reactions: { '❤️': ['user1', 'user2', 'user4'], '😂': ['user5'] },
     comments: []
   },
-   { 
+  { 
     id: 'post3', 
-    authorId: 'user4', 
-    authorName: 'Luis Leader', 
-    authorAvatar: DEMO_USERS.find(u=>u.id === 'user4')?.avatar || '', 
-    content: 'Sharing some insights from the latest tech conference. Fascinating developments in AI!', 
+    authorId: 'user1', 
+    authorName: 'Fran Periago', 
+    authorAvatar: DEMO_USERS.find(u=>u.id === 'user1')?.avatar || '', 
+    content: 'Compartiendo algunas ideas de la última conferencia de tecnología. ¡Interesantes avances en IA!', 
     timestamp: Date.now() - 1000 * 60 * 60 * 24, 
     reactions: { '💡': ['user1', 'user2', 'user3', 'user5'] }, 
     comments: []
@@ -51,9 +50,9 @@ export const INITIAL_POSTS: Post[] = [
   { 
     id: 'post-team1-1', 
     authorId: 'user1', 
-    authorName: 'Ana Admin', 
+    authorName: 'Fran Periago', 
     authorAvatar: DEMO_USERS.find(u=>u.id === 'user1')?.avatar || '', 
-    content: 'Great progress on Project Phoenix this week, team! Let\'s keep the momentum going. #ProjectPhoenix #TeamWork', 
+    content: '¡Genial progreso en el Proyecto de Mi Espacio esta semana, equipo! Vamos a mantener el ritmo. #MiEspacio #TrabajoEnEquipo', 
     teamId: 'team3',
     timestamp: Date.now() - 1000 * 60 * 60 * 3, 
     reactions: { '🚀': ['user2', 'user4'] }, 
@@ -62,9 +61,9 @@ export const INITIAL_POSTS: Post[] = [
   { 
     id: 'post-team2-1', 
     authorId: 'user3', 
-    authorName: 'Eva Empleado', 
+    authorName: 'Mari Prado', 
     authorAvatar: DEMO_USERS.find(u=>u.id === 'user3')?.avatar || '', 
-    content: 'Who is up for a 5k run this Saturday? Meeting at Retiro Park, 9 AM. 🏃‍♀️🏃‍♂️ #RunningClub', 
+    content: '¿Quién se apunta para un 5k este sábado? Nos vemos en el Parque del Retiro, 9 AM. 🏃‍♀️🏃‍♂️ #ClubDeCorredores', 
     imageUrl: 'https://picsum.photos/seed/runclub/600/300',
     teamId: 'team2',
     timestamp: Date.now() - 1000 * 60 * 45, 
@@ -74,9 +73,9 @@ export const INITIAL_POSTS: Post[] = [
   { 
     id: 'post-user1-profile', 
     authorId: 'user1', 
-    authorName: 'Ana Admin', 
+    authorName: 'Fran Periago', 
     authorAvatar: DEMO_USERS.find(u=>u.id === 'user1')?.avatar || '', 
-    content: 'Reflexionando sobre el futuro de la IA en Inditex. ¡El potencial es enorme! #AI #FutureTech', 
+    content: 'Reflexionando sobre el futuro de la IA en Inditex. ¡El potencial es enorme! #IA #FuturoTecnológico', 
     timestamp: Date.now() - 1000 * 60 * 60 * 5, 
     reactions: { '💡': ['user2', 'user4', 'user5'] }, 
     comments: []
@@ -84,16 +83,16 @@ export const INITIAL_POSTS: Post[] = [
 ];
 
 export const INITIAL_ANNOUNCEMENTS: Announcement[] = [
-  { id: 'ann1', title: 'New Corporate Values Launch', content: 'We are thrilled to announce our updated corporate values. Please review them on the intranet.', authorId: 'user1', authorName: 'Ana Admin', timestamp: Date.now() - 1000 * 60 * 60 * 24 * 2, isOfficial: true },
-  { id: 'ann2', title: 'Upcoming Team Building Event', content: 'Mark your calendars for our annual team building event on July 15th! More details to follow.', authorId: 'user2', authorName: 'Mario Manager', timestamp: Date.now() - 1000 * 60 * 60 * 5, isOfficial: true },
+  { id: 'ann1', title: 'Lanzamiento de Nuevos Valores Corporativos', content: 'Estamos emocionados de anunciar nuestros valores corporativos actualizados. Por favor, revisenlos en la intranet.', authorId: 'user1', authorName: 'Fran Periago', timestamp: Date.now() - 1000 * 60 * 60 * 24 * 2, isOfficial: true },
+  { id: 'ann2', title: 'Próximo Evento de Construcción de Equipos', content: 'Marquen sus calendarios para nuestro evento anual de construcción de equipos el 15 de julio. ¡Más detalles pronto!', authorId: 'user2', authorName: 'Fer Suárez', timestamp: Date.now() - 1000 * 60 * 60 * 5, isOfficial: true },
 ];
 
 export const INITIAL_CHALLENGES: Challenge[] = [
-  { id: 'ch1', title: 'Complete Your Profile', description: 'Add a photo, bio, and skills to your profile.', points: 50, isCompleted: (user) => !!(user.bio && user.skills?.length), progress: (user) => ( (user.avatar !== DEMO_USERS.find(u=>u.id === user.id)?.avatar ? 33:0) + (user.bio ? 33:0) + (user.skills?.length ? 34:0))},
-  { id: 'ch2', title: 'Share 3 Innovative Ideas', description: 'Post three ideas in the main feed or your team feed.', points: 100, isCompleted: (user) => INITIAL_POSTS.filter(p => p.authorId === user.id).length >=3, progress: (user) => (Math.min(100, (INITIAL_POSTS.filter(p => p.authorId === user.id).length / 3) * 100)) },
-  { id: 'ch3', title: 'Master of Memes', description: `Create and share a meme using ${AI_ASSISTANT_NAME}'s Meme Generator.`, points: 75, isCompleted: () => false, progress: () => 0 }, // Requires tracking meme creation
-  { id: 'ch4', title: 'Join a Team', description: 'Become a member of at least one team or community.', points: 30, isCompleted: (user) => (user.teamIds?.length || 0) > 0, progress: (user) => (user.teamIds?.length || 0) > 0 ? 100 : 0 },
-  { id: 'ch5', title: 'Reaction Dynamo', description: 'React to 5 different posts.', points: 25, isCompleted: (user) => false, progress: () => 60 }, // Requires tracking reactions
+  { id: 'ch1', title: 'Completa Tu Perfil', description: 'Agrega una foto, bio y habilidades a tu perfil.', points: 50, isCompleted: (user) => !!(user.bio && user.skills?.length), progress: (user) => ( (user.avatar !== DEMO_USERS.find(u=>u.id === user.id)?.avatar ? 33:0) + (user.bio ? 33:0) + (user.skills?.length ? 34:0))},
+  { id: 'ch2', title: 'Comparte 3 Ideas Innovadoras', description: 'Publica tres ideas en el feed principal o en el feed de tu equipo.', points: 100, isCompleted: (user) => INITIAL_POSTS.filter(p => p.authorId === user.id).length >=3, progress: (user) => (Math.min(100, (INITIAL_POSTS.filter(p => p.authorId === user.id).length / 3) * 100)) },
+  { id: 'ch3', title: 'Maestro de Memes', description: `Crea y comparte un meme usando el Generador de Memes de ${AI_ASSISTANT_NAME}.`, points: 75, isCompleted: () => false, progress: () => 0 }, // Requires tracking meme creation
+  { id: 'ch4', title: 'Únete a un Equipo', description: 'Conviértete en miembro de al menos un equipo o comunidad.', points: 30, isCompleted: (user) => (user.teamIds?.length || 0) > 0, progress: (user) => (user.teamIds?.length || 0) > 0 ? 100 : 0 },
+  { id: 'ch5', title: 'Dinamo de Reacciones', description: 'Reacciona a 5 publicaciones diferentes.', points: 25, isCompleted: (user) => false, progress: () => 60 }, // Requires tracking reactions
 ];
 
 export const TEAM_CATEGORIES: { id: TeamCategory, name: string }[] = [
@@ -107,32 +106,31 @@ export const TEAM_CATEGORIES: { id: TeamCategory, name: string }[] = [
 export const INITIAL_TEAMS: Team[] = [
   { 
     id: 'team1', 
-    name: 'Tech Innovators Zaragoza', 
-    description: 'Collaboration for the tech team in Zaragoza. Discussing new tools, frameworks, and local tech events.', 
+    name: 'Innovadores Tecnológicos Zaragoza', 
+    description: 'Colaboración para el equipo de tecnología de Zaragoza. Discutimos nuevas herramientas, frameworks y eventos tecnológicos locales.', 
     memberIds: ['user1', 'user2', 'user4'], 
     isPrivate: false, 
-    icon: '💡', 
-    creatorId: 'user1', 
+    icon: '💻', 
+    creatorId: 'user1',
     category: 'department',
-    bannerUrl: 'https://picsum.photos/seed/zaragoza/800/200',
+    bannerUrl: 'https://picsum.photos/seed/techinnovators/800/200',
     accentColor: '#3B82F6' // Blue
   },
   { 
     id: 'team2', 
-    name: 'Running Club Inditex', 
-    description: 'For all running enthusiasts at Inditex. Share routes, organize runs, and motivate each other!', 
+    name: 'Genios del Marketing', 
+    description: 'Un grupo para que el equipo de marketing se alinee en campañas, comparta ideas creativas y siga los KPIs.', 
     memberIds: ['user3', 'user5'], 
     isPrivate: false, 
-    icon: '🏃', 
-    creatorId: 'user3', 
-    category: 'hobby',
-    bannerUrl: 'https://picsum.photos/seed/runningclub/800/200',
+    icon: '📈', 
+    creatorId: 'user5', 
+    category: 'department',
     accentColor: '#10B981' // Green
   },
   { 
     id: 'team3', 
-    name: 'Project Phoenix Core', 
-    description: 'Core team for the Project Phoenix initiative. All official communications and discussions happen here.', 
+    name: 'Equipo Principal Proyecto Fénix', 
+    description: 'El centro de operaciones para el equipo del Proyecto Fénix. Todas las actualizaciones, documentos y debates tienen lugar aquí.', 
     memberIds: ['user1', 'user2', 'user3', 'user4', 'user5'], 
     isPrivate: true, 
     icon: '🔥', 
@@ -143,8 +141,8 @@ export const INITIAL_TEAMS: Team[] = [
   },
   { 
     id: 'team4', 
-    name: 'UX Design Thinkers', 
-    description: 'A space for UX/UI designers to share insights, critique work, and discuss design trends.', 
+    name: 'Pensadores de Diseño UX', 
+    description: 'Un espacio para que los diseñadores UX/UI compartan ideas, critiquen trabajos y debatan sobre tendencias de diseño.', 
     memberIds: ['user2', 'user5'], 
     isPrivate: false, 
     icon: '🎨', 
@@ -154,8 +152,8 @@ export const INITIAL_TEAMS: Team[] = [
   },
   { 
     id: 'team5', 
-    name: 'Book Worms Society', 
-    description: 'Love reading? Join us to discuss books, share recommendations, and maybe start a virtual book club!', 
+    name: 'Club de Lectura', 
+    description: '¿Te encanta leer? ¡Únete para hablar de libros, compartir recomendaciones y quizás empezar un club de lectura virtual!', 
     memberIds: ['user4'], 
     isPrivate: false, 
     icon: '📚', 
@@ -166,11 +164,11 @@ export const INITIAL_TEAMS: Team[] = [
 ];
 
 export const MEME_TEMPLATES: MemeTemplate[] = [
-  { id: 'mt1', name: 'Distracted Boyfriend', imageUrl: 'https://imgflip.com/s/meme/Distracted-Boyfriend.jpg', boxCount: 3 },
+  { id: 'mt1', name: 'Novio Distraído', imageUrl: 'https://imgflip.com/s/meme/Distracted-Boyfriend.jpg', boxCount: 3 },
   { id: 'mt2', name: 'Drake Hotline Bling', imageUrl: 'https://imgflip.com/s/meme/Drake-Hotline-Bling.jpg', boxCount: 2 },
-  { id: 'mt3', name: 'One Does Not Simply', imageUrl: 'https://imgflip.com/s/meme/One-Does-Not-Simply.jpg', boxCount: 2 },
-  { id: 'mt4', name: 'This is Fine', imageUrl: 'https://imgflip.com/s/meme/This-Is-Fine.jpg', boxCount: 1 },
-  { id: 'mt5', name: 'Surprised Pikachu', imageUrl: 'https://imgflip.com/s/meme/Surprised-Pikachu.jpg', boxCount: 1 },
+  { id: 'mt3', name: 'Uno No Puede Simplemente', imageUrl: 'https://imgflip.com/s/meme/One-Does-Not-Simply.jpg', boxCount: 2 },
+  { id: 'mt4', name: 'Esto Está Bien', imageUrl: 'https://imgflip.com/s/meme/This-Is-Fine.jpg', boxCount: 1 },
+  { id: 'mt5', name: 'Pikachu Sorprendido', imageUrl: 'https://imgflip.com/s/meme/Surprised-Pikachu.jpg', boxCount: 1 },
 ];
 
 export const CONNIE_QUOTES: string[] = [

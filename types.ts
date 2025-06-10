@@ -17,6 +17,8 @@ export interface User {
   teamIds?: string[]; // IDs of teams the user is a member of
   firstLogin?: boolean;
   joinTimestamp?: number; // Timestamp of when the user joined/was created
+  roleDescription?: string;
+  quote?: string;
 }
 
 export interface Post {
