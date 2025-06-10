@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PeopleTech ConnectIA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class', // or 'media' or 'class'
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#2AB3B1', // Teal
+              light: '#70E0CB', // Lighter Teal for text on dark primary, or highlights
+              dark: '#1F8A88', // Darker Teal
+            },
+            secondary: {
+              DEFAULT: '#F98F54', // Coral
+              dark: '#E07B40', // Darker Coral
+            },
+            accent: {
+              DEFAULT: '#84CC16', // Lime Green
+              dark: '#6AA312', // Darker Lime Green
+            },
+            neutral: {
+              textDark: '#212121', // Dark text for light mode
+              textLight: '#EAEAEA', // Light text for dark mode
+              bgDark: '#121212',   // Dark background
+              bgLight: '#FFFFFF',  // Light background
+              borderLight: '#E0E0E0', // Light border (prompt also mentioned #CCC, E0E0E0 is chosen)
+              borderDark: '#3A3A3A',   // Dark border
+            },
+            card: {
+              light: '#FFFFFF', // Card background in light mode (prompt also mentioned #F5F5F5)
+              dark: '#1E1E1E',   // Card background in dark mode (prompt also mentioned #2C2C2C)
+            },
+            success: '#4BB543', // Green for success messages/completion
+            error: '#E04F5F',   // Red for error messages/warnings
+            // 'info' color removed as per new palette specification, will be replaced by primary or accent if needed.
+          }
+        },
+        fontFamily: {
+          sans: ['Inter', 'Nunito Sans', 'sans-serif'],
+        }
+      }
+    }
+  </script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.6.2",
+    "react-hook-form": "https://esm.sh/react-hook-form@^7.57.0",
+    "zod": "https://esm.sh/zod@^3.25.57",
+    "@hookform/resolvers/": "https://esm.sh/@hookform/resolvers@^5.1.1/",
+    "date-fns": "https://esm.sh/date-fns@^4.1.0",
+    "date-fns/": "https://esm.sh/date-fns@^4.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.4.0"
+  }
+}
+</script>
+<style>
+  /* Basic style to prevent content overlap with sticky header if needed, App.tsx also handles this */
+  /* body > #root > div > main {
+    padding-top: 4rem; Height of the header (h-16) 
+  } */
+
+  /* Global font size adjustment based on accessibility settings */
+  html.text-sm { font-size: 0.875rem; } /* 14px */
+  html.text-base { font-size: 1rem; } /* 16px */
+  html.text-lg { font-size: 1.125rem; } /* 18px */
+
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    html:not(.motion-reduce) * {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  html.motion-reduce * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+</style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-neutral-bgLight dark:bg-neutral-bgDark text-neutral-textDark dark:text-neutral-textLight transition-colors duration-300">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

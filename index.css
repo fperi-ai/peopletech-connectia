@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Color variables */
+  --color-primary: #3B82F6;
+  --color-primary-dark: #2563EB;
+  --color-bg-light: #f0f4f8;
+  --color-bg-dark: #0f172a;
+  --color-text-light: #f8fafc;
+  --color-text-dark: #1e293b;
+  --color-error: #E04F5F;
+  
+  /* Glassmorphism variables */
+  --glass-background: rgba(255, 255, 255, 0.15);
+  --glass-background-dark: rgba(15, 23, 42, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-border-dark: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --glass-blur: 10px;
+}
+
+body {
+  @apply bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900;
+  @apply min-h-screen;
+  background-attachment: fixed;
+}
+
+.dark body {
+  @apply from-blue-900 to-purple-900;
+}
+
+/* Glassmorphism base classes */
+.glass {
+  @apply bg-white/15 dark:bg-neutral-bgDark/65;
+  @apply backdrop-blur-md;
+  @apply border border-white/18 dark:border-white/8;
+  @apply shadow-glass;
+  @apply rounded-xl;
+}
+
+.glass-card {
+  @apply glass;
+  @apply p-6;
+  @apply transition-all duration-300;
+  @apply hover:shadow-glass-lg;
+}
+
+.glass-button {
+  @apply glass;
+  @apply px-4 py-2;
+  @apply font-medium;
+  @apply transition-all duration-200;
+  @apply hover:bg-white/25 dark:hover:bg-neutral-bgDark/75;
+  @apply active:scale-95;
+}
+
+.glass-input {
+  @apply glass;
+  @apply bg-white/25 dark:bg-neutral-bgDark/50;
+  @apply p-3;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT/50;
+}
+
+.glass-navbar {
+  @apply glass;
+  @apply bg-white/35 dark:bg-neutral-bgDark/75;
+  @apply backdrop-blur-lg;
+  @apply z-50;
+}
+
+/* Custom scrollbar for glassmorphism */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-white/10 dark:bg-neutral-bgDark/30;
+  @apply rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/25 dark:bg-white/15;
+  @apply rounded-full;
+  @apply hover:bg-white/35 dark:hover:bg-white/25;
+}
