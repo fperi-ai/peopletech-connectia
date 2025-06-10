@@ -37,3 +37,12 @@ next-env.d.ts
 
 # windsurf
 *.windsurf
+
+# Local Netlify folder
+.netlify
+
+# Vite
+.vite
+
+# Netlify build
+/dist
