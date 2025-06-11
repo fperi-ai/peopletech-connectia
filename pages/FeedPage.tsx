@@ -11,11 +11,54 @@ import { FeedSidebar } from '../components/feed/sidebar/FeedSidebar';
 const FeedPage: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>(() => INITIAL_POSTS.filter(p => !p.teamId));
   const [showNewPostsIndicator, setShowNewPostsIndicator] = useState(false);
+  const [newPosts, setNewPosts] = useState<Post[]>([]);
   const { currentUser } = useAuth();
+  
+  // Nuevos posts simulados que se añadirán al refrescar
+  const additionalPosts: Post[] = [
+    { 
+      id: 'post-refresh-1', 
+      authorId: 'u-007', 
+      authorName: 'Javi Sanesteban', 
+      authorAvatar: '/avatars/javi.png', 
+      content: '¡Acabo de terminar la presentación para el comité directivo! ¿Alguien quiere echar un vistazo antes de mañana? #Feedback #PeopleTech', 
+      timestamp: Date.now() - 1000 * 60 * 10, 
+      reactions: {}, 
+      comments: [] 
+    },
+    { 
+      id: 'post-refresh-2', 
+      authorId: 'u-011', 
+      authorName: 'Ares Bautista', 
+      authorAvatar: '/avatars/ares.png', 
+      content: 'Nuevo artículo sobre arquitectura de microservicios en mi blog. ¡Link en comentarios! #Arquitectura #Dev', 
+      timestamp: Date.now() - 1000 * 60 * 15, 
+      reactions: {}, 
+      comments: [
+        { id: 'comment-refresh-1', authorId: 'u-011', authorName: 'Ares Bautista', authorAvatar: '/avatars/ares.png', content: 'https://arq-tech.dev/microservices-patterns-2025', timestamp: Date.now() - 1000 * 60 * 14 }
+      ] 
+    },
+    { 
+      id: 'post-refresh-3', 
+      authorId: 'u-008', 
+      authorName: 'Tere Casal', 
+      authorAvatar: '/avatars/tere.png', 
+      content: '¿Alguien se apunta al webinar de mañana sobre AI Governance? Promete ser interesante 🤖🧠', 
+      timestamp: Date.now() - 1000 * 60 * 18, 
+      reactions: { '👍': ['u-007', 'u-011'] }, 
+      comments: [] 
+    }
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (Math.random() > 0.8 && !showNewPostsIndicator) { 
+      if (Math.random() > 0.7 && !showNewPostsIndicator) { 
+        // Seleccionar posts aleatorios para mostrar al refrescar
+        const randomPosts = additionalPosts
+          .sort(() => Math.random() - 0.5)
+          .slice(0, Math.floor(Math.random() * 3) + 1);
+        
+        setNewPosts(randomPosts);
         setShowNewPostsIndicator(true);
       }
     }, 15000);
@@ -41,7 +84,14 @@ const FeedPage: React.FC = () => {
   };
 
   const handleRefreshFeed = () => {
-    setPosts(INITIAL_POSTS.filter(p => !p.teamId).sort(() => Math.random() - 0.5));
+    // Añadir los nuevos posts al inicio del feed
+    if (newPosts.length > 0) {
+      setPosts(prevPosts => [...newPosts, ...prevPosts]);
+      setNewPosts([]);
+    } else {
+      // Si por alguna razón no hay nuevos posts, reorganizar los existentes
+      setPosts(prev => [...prev].sort(() => Math.random() - 0.5));
+    }
     setShowNewPostsIndicator(false);
   }
 

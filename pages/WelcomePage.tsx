@@ -100,7 +100,7 @@ const WelcomePage: React.FC = () => {
                 <img src={leader.avatar} alt={`Avatar de ${leader.name}`} className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-primary-light" />
                 <h3 className="font-semibold text-neutral-textDark dark:text-neutral-textLight">{leader.name}</h3>
                 <p className="text-sm text-primary-DEFAULT dark:text-primary-light">{leader.roleDescription}</p>
-                <p className="text-xs italic mt-2 text-gray-600 dark:text-gray-300">"{leader.quote}"</p>
+                <p className="text-sm italic mt-2 text-gray-700 dark:text-gray-100">"{leader.quote}"</p>
               </div>
             ))}
           </div>
@@ -115,12 +115,12 @@ const WelcomePage: React.FC = () => {
         </section>
 
         <section className="bg-card-light dark:bg-card-dark shadow-xl rounded-lg p-6 sm:p-8 mt-12">
-          <h2 className="text-2xl font-semibold mb-5 text-center text-primary-DEFAULT">¿Qué puedes hacer en {APP_NAME}?</h2>
+          <h2 className="text-2xl font-semibold mb-5 text-center text-neutral-textDark dark:text-neutral-textLight">¿Qué puedes hacer en {APP_NAME}?</h2>
           <ul className="space-y-4 max-w-2xl mx-auto">
             {FEATURES.map((feature: Feature) => (
               <li key={feature.text} className="flex items-start p-3 bg-neutral-bgLight dark:bg-neutral-bgDark/50 rounded-md hover:bg-neutral-bgLight/80 dark:hover:bg-neutral-bgDark/70 transition-colors">
-                <Icon name={feature.icon as any} className="text-2xl mr-4 flex-shrink-0 text-primary-DEFAULT" />
-                <span className="text-gray-700 dark:text-gray-300">{feature.text}</span>
+                <Icon name={feature.icon as any} className="text-2xl mr-4 flex-shrink-0 text-primary-DEFAULT dark:text-primary-light" />
+                <span className="text-neutral-textDark dark:text-black font-medium">{feature.text}</span>
               </li>
             ))}
           </ul>

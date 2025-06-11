@@ -11,7 +11,7 @@ const DynamicGreeting: React.FC<DynamicGreetingProps> = ({ baseText }) => {
 
   const alternativeGreetings = [
     `Hoy es un gran día para innovar, ${currentUser?.name} 👊`,
-    `¿Listo para crear algo increíble, ${currentUser?.name}?`,
+    `¿Vamos a crear algo increíble, ${currentUser?.name}?`,
     `¡Qué bueno verte por aquí, ${currentUser?.name}!`,
   ];
 

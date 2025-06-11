@@ -89,14 +89,14 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
 
   const baseLinkClasses = "px-3 py-2 rounded-xl text-sm font-medium flex items-center gap-2 transition-all duration-200";
   const activeLinkClasses = glassmorphic 
-    ? "bg-white/25 dark:bg-primary-DEFAULT/30 text-primary-dark dark:text-white backdrop-blur-md border border-white/20 dark:border-white/10 shadow-glass-sm" 
-    : "bg-primary-DEFAULT/20 dark:bg-primary-DEFAULT/30 text-primary-dark dark:text-white";
+    ? "bg-white bg-opacity-25 dark:bg-primary-DEFAULT dark:bg-opacity-30 text-primary-dark dark:text-white backdrop-blur-md border border-white border-opacity-20 dark:border-white dark:border-opacity-10 shadow-glass-sm" 
+    : "bg-primary-DEFAULT bg-opacity-20 dark:bg-primary-DEFAULT dark:bg-opacity-30 text-primary-dark dark:text-white";
   const inactiveLinkClasses = glassmorphic 
-    ? "text-neutral-textDark dark:text-neutral-textLight hover:bg-white/15 dark:hover:bg-neutral-textLight/10 backdrop-blur-sm" 
-    : "text-neutral-textDark dark:text-neutral-textLight hover:bg-primary-DEFAULT/10 dark:hover:bg-primary-DEFAULT/20";
+    ? "text-neutral-textDark dark:text-neutral-textLight hover:bg-white hover:bg-opacity-15 dark:hover:bg-neutral-textLight dark:hover:bg-opacity-10 backdrop-blur-sm" 
+    : "text-neutral-textDark dark:text-neutral-textLight hover:bg-primary-DEFAULT hover:bg-opacity-10 dark:hover:bg-primary-DEFAULT dark:hover:bg-opacity-20";
   
   return (
-    <header className={`${glassmorphic ? 'glass-navbar backdrop-blur-xl' : 'bg-neutral-bgLight/90 dark:bg-neutral-bgDark/90'} sticky top-0 z-50 shadow-md`}>
+    <header className={`${glassmorphic ? 'glass-navbar backdrop-blur-xl' : 'bg-neutral-bgLight bg-opacity-90 dark:bg-neutral-bgDark dark:bg-opacity-90'} sticky top-0 z-50 shadow-md`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -127,7 +127,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
                 </div>
                 <input
                   id="search"
-                  className="glass-input block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 dark:placeholder-gray-400 sm:text-sm text-neutral-textDark dark:text-neutral-textLight"
+                  className="glass-input block w-full py-2 pl-11 pr-3 leading-5 placeholder-gray-500 dark:placeholder-gray-400 sm:text-sm text-neutral-textDark dark:text-neutral-textLight focus:ring-2 focus:ring-primary-DEFAULT focus:border-primary-DEFAULT"
                   placeholder="Buscar..."
                   type="search"
                   name="search"
@@ -142,7 +142,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
           <div className="flex items-center space-x-1 sm:space-x-2">
             <button
               onClick={toggleTheme}
-              className="glass p-2 rounded-full hover:bg-white/25 dark:hover:bg-neutral-textLight/15 text-neutral-textDark dark:text-neutral-textLight focus:outline-none"
+              className="glass p-2 rounded-full hover:bg-white hover:bg-opacity-25 dark:hover:bg-neutral-textLight dark:hover:bg-opacity-15 text-neutral-textDark dark:text-neutral-textLight focus:outline-none"
               aria-label={theme === 'dark' ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
             >
               <Icon name={theme === 'dark' ? 'sun' : 'moon'} className="text-lg" glassmorphic={glassmorphic} />
@@ -155,7 +155,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
                   <button
                     ref={notificationButtonRef}
                     onClick={handleToggleNotificationMenu}
-                    className={`${glassmorphic ? 'glass backdrop-blur-sm border border-white/20 dark:border-white/10' : 'bg-neutral-bgLight dark:bg-neutral-bgDark border border-neutral-borderLight dark:border-neutral-borderDark'} p-2 rounded-full hover:bg-white/25 dark:hover:bg-neutral-textLight/15 text-neutral-textDark dark:text-neutral-textLight focus:outline-none shadow-glass-sm`}
+                    className={`${glassmorphic ? 'glass backdrop-blur-sm border border-white border-opacity-20 dark:border-white dark:border-opacity-10' : 'bg-neutral-bgLight dark:bg-neutral-bgDark border border-neutral-borderLight dark:border-neutral-borderDark'} p-2 rounded-full hover:bg-white hover:bg-opacity-25 dark:hover:bg-neutral-textLight dark:hover:bg-opacity-15 text-neutral-textDark dark:text-neutral-textLight focus:outline-none shadow-glass-sm`}
                     aria-label={`Notificaciones ${unreadNotificationCount > 0 ? `, ${unreadNotificationCount} nuevas` : ''}`}
                     aria-haspopup="true"
                     aria-expanded={isNotificationMenuOpen}
@@ -168,7 +168,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
                   {isNotificationMenuOpen && (
                     <div 
                         ref={notificationMenuRef}
-                        className={`${glassmorphic ? 'glass backdrop-blur-lg bg-white/20 dark:bg-neutral-bgDark/30 border border-white/20 dark:border-white/10' : 'bg-neutral-bgLight dark:bg-neutral-bgDark border border-neutral-borderLight dark:border-neutral-borderDark'} origin-top-right absolute right-0 mt-2 w-72 sm:w-80 shadow-glass py-1 z-50 max-h-96 overflow-y-auto rounded-xl`}
+                        className={`${glassmorphic ? 'glass backdrop-blur-lg bg-white/60 dark:bg-neutral-bgDark/80 border border-white/20 dark:border-white/10' : 'bg-neutral-bgLight dark:bg-neutral-bgDark border border-neutral-borderLight dark:border-neutral-borderDark'} origin-top-right absolute right-0 mt-2 w-72 sm:w-80 shadow-glass py-1 z-50 max-h-96 overflow-y-auto rounded-xl`}
                         role="menu" aria-orientation="vertical" aria-labelledby="notification-menu-button"
                     >
                         <div className="px-4 py-2 text-sm font-semibold text-neutral-textDark dark:text-neutral-textLight border-b border-neutral-borderLight dark:border-neutral-borderDark">Notificaciones</div>
@@ -196,7 +196,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
                   <button 
                     ref={userAvatarButtonRef}
                     onClick={handleToggleUserMenu} 
-                    className={`${glassmorphic ? 'glass backdrop-blur-sm' : 'bg-neutral-bgLight dark:bg-neutral-bgDark'} flex items-center p-1 rounded-full hover:bg-white/25 dark:hover:bg-neutral-textLight/15 focus:outline-none shadow-glass-sm`}
+                    className={`${glassmorphic ? 'glass backdrop-blur-sm' : 'bg-neutral-bgLight dark:bg-neutral-bgDark'} flex items-center p-1 rounded-full hover:bg-white hover:bg-opacity-25 dark:hover:bg-neutral-textLight dark:hover:bg-opacity-15 focus:outline-none shadow-glass-sm`}
                     aria-label="Abrir menú de usuario"
                     aria-haspopup="true"
                     aria-expanded={isUserMenuOpen}
@@ -206,7 +206,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
                   {isUserMenuOpen && (
                     <div 
                         ref={userMenuRef}
-                        className={`${glassmorphic ? 'glass backdrop-blur-lg bg-white/20 dark:bg-neutral-bgDark/30 border border-white/20 dark:border-white/10' : 'bg-neutral-bgLight dark:bg-neutral-bgDark border border-neutral-borderLight dark:border-neutral-borderDark'} origin-top-right absolute right-0 mt-2 w-56 shadow-glass py-1 focus:outline-none z-50 rounded-xl`}
+                        className={`${glassmorphic ? 'glass backdrop-blur-lg bg-white/60 dark:bg-neutral-bgDark/80 border border-white/20 dark:border-white/10' : 'bg-neutral-bgLight dark:bg-neutral-bgDark border border-neutral-borderLight dark:border-neutral-borderDark'} origin-top-right absolute right-0 mt-2 w-56 shadow-glass py-1 focus:outline-none z-50 rounded-xl`}
                         role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                     >
                       <div className="px-4 py-3 border-b border-neutral-borderLight dark:border-neutral-borderDark">
@@ -234,7 +234,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`${glassmorphic ? 'glass backdrop-blur-sm border border-white/20 dark:border-white/10' : 'bg-neutral-bgLight dark:bg-neutral-bgDark border border-neutral-borderLight dark:border-neutral-borderDark'} p-2 rounded-xl text-neutral-textDark dark:text-neutral-textLight hover:bg-white/25 dark:hover:bg-neutral-textLight/15 focus:outline-none shadow-glass-sm`}
+                className={`${glassmorphic ? 'glass backdrop-blur-sm border border-white border-opacity-20 dark:border-white dark:border-opacity-10' : 'bg-neutral-bgLight dark:bg-neutral-bgDark border border-neutral-borderLight dark:border-neutral-borderDark'} p-2 rounded-xl text-neutral-textDark dark:text-neutral-textLight hover:bg-white hover:bg-opacity-25 dark:hover:bg-neutral-textLight dark:hover:bg-opacity-15 focus:outline-none shadow-glass-sm`}
                 aria-controls="mobile-menu"
                 aria-expanded={isMobileMenuOpen}
                 aria-label="Abrir menú principal"
@@ -264,7 +264,7 @@ const Header: React.FC<HeaderProps> = ({ glassmorphic = true }) => {
                     </div>
                     <input
                     id="search-mobile"
-                    className="glass-input block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 dark:placeholder-gray-400 sm:text-sm text-neutral-textDark dark:text-neutral-textLight"
+                    className="glass-input block w-full py-2 pl-11 pr-3 leading-5 placeholder-gray-500 dark:placeholder-gray-400 sm:text-sm text-neutral-textDark dark:text-neutral-textLight focus:ring-2 focus:ring-primary-DEFAULT focus:border-primary-DEFAULT"
                     placeholder="Buscar..."
                     type="search"
                     name="search_mobile"

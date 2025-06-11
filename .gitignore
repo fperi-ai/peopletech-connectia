@@ -37,3 +37,23 @@ next-env.d.ts
 
 # windsurf
 *.windsurf
+
+# Local Netlify folder
+.netlify
+
+# Vite
+.vite
+
+# Netlify build and assets
+/dist
+/dist/assets/
+*.css.map
+*.js.map
+
+# Editor and system files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.history

@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import { Team, UserRole, TeamCategory } from '../types';
 import { INITIAL_TEAMS, DEMO_USERS, TEAM_CATEGORIES, APP_NAME } from '../constants';
 import Button from '../components/shared/Button';
 import Icon from '../components/shared/Icon';
+import Modal from '../components/shared/Modal';
 import { useAuth } from '../contexts/AuthContext';
 import TeamCard from '../components/teams/TeamCard'; 
 import Avatar from '../components/shared/Avatar'; 
@@ -159,43 +159,68 @@ const TeamsListPage: React.FC = () => {
       </div>
 
       {showCreateModal && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 z-[1100]" role="dialog" aria-modal="true" aria-labelledby="create-team-title">
-          <div className="bg-card-light dark:bg-card-dark rounded-xl shadow-2xl p-6 w-full max-w-lg max-h-[90vh] overflow-y-auto">
-            <div className="flex justify-between items-center mb-4">
-              <h2 id="create-team-title" className="text-2xl font-semibold text-primary-DEFAULT">Crear Nuevo Equipo</h2>
-              <Button variant="ghost" size="sm" onClick={() => setShowCreateModal(false)} aria-label="Cerrar modal">
-                <Icon name="close" className="w-6 h-6" />
-              </Button>
+        <Modal
+          isOpen={showCreateModal}
+          title="Crear Nuevo Equipo"
+          onClose={() => setShowCreateModal(false)}
+          size="md"
+        >
+          <div className="space-y-4">
+            {formError && <p className="mb-3 text-sm text-error bg-error/10 p-2 rounded-md">{formError}</p>}
+            
+            <div>
+              <label htmlFor="newTeamName" className="block text-sm font-medium mb-1 text-neutral-textDark dark:text-neutral-textLight">Nombre del Equipo <span className="text-error">*</span></label>
+              <input 
+                type="text" 
+                id="newTeamName" 
+                value={newTeamName} 
+                onChange={(e) => setNewTeamName(e.target.value)} 
+                className="w-full p-2 border border-neutral-borderLight dark:border-neutral-borderDark rounded-md bg-neutral-bgLight dark:bg-neutral-bgDark text-neutral-textDark dark:text-neutral-textLight focus:ring-primary-DEFAULT focus:border-primary-DEFAULT" 
+              />
             </div>
             
-            {formError && <p className="mb-3 text-sm text-error bg-error/10 p-2 rounded-md">{formError}</p>}
-
-            <div className="space-y-4">
-              <div>
-                <label htmlFor="newTeamName" className="block text-sm font-medium mb-1 text-neutral-textDark dark:text-neutral-textLight">Nombre del Equipo <span className="text-error">*</span></label>
-                <input type="text" id="newTeamName" value={newTeamName} onChange={(e) => setNewTeamName(e.target.value)} className="w-full p-2 border border-neutral-borderLight dark:border-neutral-borderDark rounded-md bg-neutral-bgLight dark:bg-neutral-bgDark text-neutral-textDark dark:text-neutral-textLight focus:ring-primary-DEFAULT focus:border-primary-DEFAULT" />
-              </div>
-              <div>
-                <label htmlFor="newTeamDesc" className="block text-sm font-medium mb-1 text-neutral-textDark dark:text-neutral-textLight">Descripción <span className="text-error">*</span></label>
-                <textarea id="newTeamDesc" value={newTeamDesc} onChange={(e) => setNewTeamDesc(e.target.value)} rows={3} className="w-full p-2 border border-neutral-borderLight dark:border-neutral-borderDark rounded-md bg-neutral-bgLight dark:bg-neutral-bgDark text-neutral-textDark dark:text-neutral-textLight focus:ring-primary-DEFAULT focus:border-primary-DEFAULT"></textarea>
-              </div>
-              <div>
-                <label htmlFor="newTeamCategory" className="block text-sm font-medium mb-1 text-neutral-textDark dark:text-neutral-textLight">Categoría</label>
-                <select id="newTeamCategory" value={newTeamCategory} onChange={(e) => setNewTeamCategory(e.target.value as TeamCategory)} className="w-full p-2 border border-neutral-borderLight dark:border-neutral-borderDark rounded-md bg-neutral-bgLight dark:bg-neutral-bgDark text-neutral-textDark dark:text-neutral-textLight focus:ring-primary-DEFAULT focus:border-primary-DEFAULT">
-                  {TEAM_CATEGORIES.map(cat => <option key={cat.id} value={cat.id}>{cat.name}</option>)}
-                </select>
-              </div>
-              <div className="flex items-center">
-                <input type="checkbox" id="newTeamIsPrivate" checked={newTeamIsPrivate} onChange={(e) => setNewTeamIsPrivate(e.target.checked)} className="h-4 w-4 text-primary-DEFAULT border-neutral-borderLight rounded focus:ring-primary-DEFAULT mr-2" />
-                <label htmlFor="newTeamIsPrivate" className="text-sm text-neutral-textDark dark:text-neutral-textLight">Equipo Privado (requiere aprobación para unirse)</label>
-              </div>
+            <div>
+              <label htmlFor="newTeamDesc" className="block text-sm font-medium mb-1 text-neutral-textDark dark:text-neutral-textLight">Descripción <span className="text-error">*</span></label>
+              <textarea 
+                id="newTeamDesc" 
+                value={newTeamDesc} 
+                onChange={(e) => setNewTeamDesc(e.target.value)} 
+                rows={3} 
+                className="w-full p-2 border border-neutral-borderLight dark:border-neutral-borderDark rounded-md bg-neutral-bgLight dark:bg-neutral-bgDark text-neutral-textDark dark:text-neutral-textLight focus:ring-primary-DEFAULT focus:border-primary-DEFAULT"
+              ></textarea>
             </div>
+            
+            <div>
+              <label htmlFor="newTeamCategory" className="block text-sm font-medium mb-1 text-neutral-textDark dark:text-neutral-textLight">Categoría</label>
+              <select 
+                id="newTeamCategory" 
+                value={newTeamCategory} 
+                onChange={(e) => setNewTeamCategory(e.target.value as TeamCategory)} 
+                className="w-full p-2 border border-neutral-borderLight dark:border-neutral-borderDark rounded-md bg-neutral-bgLight dark:bg-neutral-bgDark text-neutral-textDark dark:text-neutral-textLight focus:ring-primary-DEFAULT focus:border-primary-DEFAULT"
+              >
+                {TEAM_CATEGORIES.map(cat => <option key={cat.id} value={cat.id}>{cat.name}</option>)}
+              </select>
+            </div>
+            
+            <div className="flex items-center">
+              <input 
+                type="checkbox" 
+                id="newTeamIsPrivate" 
+                checked={newTeamIsPrivate} 
+                onChange={(e) => setNewTeamIsPrivate(e.target.checked)} 
+                className="h-4 w-4 text-primary-DEFAULT border-neutral-borderLight rounded focus:ring-primary-DEFAULT mr-2" 
+              />
+              <label htmlFor="newTeamIsPrivate" className="text-sm text-neutral-textDark dark:text-neutral-textLight">
+                Equipo Privado (requiere aprobación para unirse)
+              </label>
+            </div>
+            
             <div className="mt-6 flex justify-end space-x-3">
               <Button variant="secondary" onClick={() => setShowCreateModal(false)}>Cancelar</Button>
               <Button onClick={handleCreateTeam}>Crear Equipo</Button>
             </div>
           </div>
-        </div>
+        </Modal>
       )}
     </div>
   );

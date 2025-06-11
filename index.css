@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilos globales para el modo claro/oscuro */
+:root {
+  color-scheme: light;
+}
+
+html {
+  background-color: #f0f4f8;
+}
+
+html.dark {
+  background-color: #0f172a;
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* Variables CSS */
 :root {
   /* Color variables */
   --color-primary: #3B82F6;
@@ -25,11 +44,12 @@
 
 /* Glassmorphism base classes */
 .glass {
-  @apply bg-white/15 dark:bg-neutral-bgDark/65;
-  @apply backdrop-blur-md;
-  @apply border border-white/18 dark:border-white/8;
+  @apply bg-opacity-15 bg-white dark:bg-neutral-bgDark dark:bg-opacity-65;
+  @apply backdrop-filter backdrop-blur-md;
+  @apply border border-white border-opacity-[0.18] dark:border-white dark:border-opacity-[0.08];
   @apply shadow-glass;
   @apply rounded-xl;
+  @apply transition-colors duration-300;
 }
 
 .glass-card {
@@ -44,20 +64,20 @@
   @apply px-4 py-2;
   @apply font-medium;
   @apply transition-all duration-200;
-  @apply hover:bg-white/25 dark:hover:bg-neutral-bgDark/75;
+  @apply hover:bg-white hover:bg-opacity-25 dark:hover:bg-neutral-bgDark dark:hover:bg-opacity-75;
   @apply active:scale-95;
 }
 
 .glass-input {
   @apply glass;
-  @apply bg-white/25 dark:bg-neutral-bgDark/50;
+  @apply bg-white bg-opacity-25 dark:bg-neutral-bgDark dark:bg-opacity-50;
   @apply p-3;
-  @apply focus:outline-none focus:ring-2 focus:ring-primary-DEFAULT/50;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50;
 }
 
 .glass-navbar {
   @apply glass;
-  @apply bg-white/35 dark:bg-neutral-bgDark/75;
+  @apply bg-white bg-opacity-35 dark:bg-neutral-bgDark dark:bg-opacity-75;
   @apply backdrop-blur-lg;
   @apply z-50;
 }
@@ -69,12 +89,12 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-white/10 dark:bg-neutral-bgDark/30;
+  @apply bg-white bg-opacity-10 dark:bg-neutral-bgDark dark:bg-opacity-30;
   @apply rounded-full;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-white/25 dark:bg-white/15;
+  @apply bg-white bg-opacity-25 dark:bg-white dark:bg-opacity-15;
   @apply rounded-full;
-  @apply hover:bg-white/35 dark:hover:bg-white/25;
+  @apply hover:bg-white hover:bg-opacity-35 dark:hover:bg-white dark:hover:bg-opacity-25;
 }

@@ -16,7 +16,8 @@ type FontSize = 'sm' | 'base' | 'lg';
 
 const AccessibilityPopover: React.FC<AccessibilityPopoverProps> = ({ isOpen, onClose, anchorRef, glassmorphic = true }) => {
   const { theme, toggleTheme } = useTheme();
-  const { isGlassmorphismEnabled, toggleGlassmorphism, enableGlassmorphism } = useGlassmorphism();
+  const glassmorphismContext = useGlassmorphism();
+  const { isGlassmorphismEnabled, toggleGlassmorphism } = glassmorphismContext;
   const [fontSize, setFontSize] = useState<FontSize>(() => (localStorage.getItem('fontSize') as FontSize) || 'base');
   const [highContrast, setHighContrast] = useState(() => localStorage.getItem('highContrast') === 'true');
   const [reducedMotion, setReducedMotion] = useState(() => {
@@ -210,6 +211,8 @@ const AccessibilityPopover: React.FC<AccessibilityPopoverProps> = ({ isOpen, onC
                 Desactiva animaciones y transiciones innecesarias.
             </p>
           </div>
+
+
       </main>
       <footer className={`p-4 border-t ${glassmorphic ? 'border-white/20 dark:border-white/10' : 'border-neutral-borderLight dark:border-neutral-borderDark'} flex justify-between items-center`}>
           <Button 
@@ -219,7 +222,7 @@ const AccessibilityPopover: React.FC<AccessibilityPopoverProps> = ({ isOpen, onC
               setFontSize('base');
               setHighContrast(false);
               setReducedMotion(false);
-              enableGlassmorphism(); // Activar Glassmorphism
+              glassmorphismContext.enableGlassmorphism(); // Activar Glassmorphism
               
               // Limpiar localStorage
               localStorage.removeItem('fontSize');
